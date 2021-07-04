@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
+require 'pry'
 
 require_relative "../lib/user.rb"
 require_relative "../lib/teacher.rb"
 require_relative "../lib/student.rb"
+
+max = Student.new
+max.first_name = "Max"
+max.last_name = "Rabin"
 
 steve = Student.new
 steve.first_name = "Steve"
@@ -12,9 +17,17 @@ avi = Teacher.new
 avi.first_name = "Avi"
 avi.last_name = "Flombaum"
 
+jim = User.new
+jim.first_name = "Jim"
+jim.last_name = "Jones"
+# binding.pry
 
-some_knowledge = avi.teach 
+
+some_knowledge = avi.teach
+some_other_knowledge = avi.teach 
 
 steve.learn(some_knowledge)
+max.learn(some_other_knowledge)
 
 puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+puts "Max just learned this important knowledge: '#{max.knowledge.first}' from Avi"
